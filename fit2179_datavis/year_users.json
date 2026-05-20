@@ -1,0 +1,12 @@
+{
+    "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+    "title": { "text": "Australian eCommerce Shoppers Account" },
+    "data": {
+        "url": "data/e-commerce_total_account.csv"
+    },
+    "mark": "bar",
+    "encoding": {
+        "x": { "field": "Year", "type": "ordinal", "title":"Year"},
+        "y": { "field": "User_in_millions", "type": "quantitative", "title": "Users (millions)"}
+    }
+}

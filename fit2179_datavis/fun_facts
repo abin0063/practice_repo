@@ -1,0 +1,19 @@
+function showFact(num) {
+
+    var factBox = document.getElementById("factBox");
+
+    if (num === 1) {
+        factBox.innerText =
+        "Australia has over 20 million online shoppers, making e-commerce one of the fastest-growing retail sectors in the country.";
+    }
+
+    else if (num === 2) {
+        factBox.innerText =
+        "Amazon, eBay, and Kogan are among the most visited e-commerce platforms in Australia.";
+    }
+
+    else if (num === 3) {
+        factBox.innerText =
+        "More than 50% of online purchases in Australia are made using mobile phones.";
+    }
+}

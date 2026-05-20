@@ -1,0 +1,97 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "description": "A horizontal lollipop chart with clean inline data using ampersands.",
+  "width": 500,
+  "height": 400,
+  "title": {
+    "text": "Online Spend by Category 2025",
+    "subtitle": "Hover or tap on circles to see YoY % Growth",
+    "fontSize": 16,
+    "anchor": "start",
+    "offset": 15
+  },
+  "data": {
+    "values": [
+      {"category": "Books & stationery & multimedia", "online_spend_billion": 2.5, "yoy_growth_percentage": 24.1},
+      {"category": "Health & beauty", "online_spend_billion": 3.8, "yoy_growth_percentage": 15.1},
+      {"category": "Department stores", "online_spend_billion": 4.3, "yoy_growth_percentage": 19.5},
+      {"category": "Hobbies & rec. goods", "online_spend_billion": 5.0, "yoy_growth_percentage": 17.1},
+      {"category": "Consumer electronics", "online_spend_billion": 9.2, "yoy_growth_percentage": 16.0},
+      {"category": "Home & garden", "online_spend_billion": 11.4, "yoy_growth_percentage": 10.5},
+      {"category": "Fashion & apparel", "online_spend_billion": 11.6, "yoy_growth_percentage": 11.5},
+      {"category": "Food & liquor", "online_spend_billion": 16.0, "yoy_growth_percentage": 14.0},
+      {"category": "Online marketplaces", "online_spend_billion": 18.9, "yoy_growth_percentage": 13.0}
+    ]
+  },
+  "transform": [
+    {
+      "calculate": "'$' + datum.online_spend_billion + 'b'",
+      "as": "SpendLabel"
+    }
+  ],
+  "encoding": {
+    "y": {
+      "field": "category",
+      "type": "nominal",
+      "sort": "-x",
+      "axis": {
+        "title": null,
+        "labelFontSize": 12,
+        "labelLimit": 300
+      }
+    },
+    "x": {
+      "field": "online_spend_billion",
+      "type": "quantitative",
+      "axis": {
+        "title": "Online Spend (Billion AUD)",
+        "grid": true
+      }
+    }
+  },
+  "layer": [
+    {
+      "mark": {
+        "type": "rule",
+        "color": "#bcdcf5",
+        "strokeWidth": 2.5
+      },
+      "encoding": {
+        "x2": {"datum": 0}
+      }
+    },
+    {
+      "mark": {
+        "type": "circle",
+        "size": 180,
+        "color": "#e15759",
+        "cursor": "pointer"
+      },
+      "encoding": {
+        "tooltip": [
+          {"field": "category", "type": "nominal", "title": "Category"},
+          {"field": "online_spend_billion", "type": "quantitative", "title": "Spend ($b)"},
+          {"field": "yoy_growth_percentage", "type": "quantitative", "title": "YoY Growth (%)"}
+        ]
+      }
+    },
+    {
+      "mark": {
+        "type": "text",
+        "align": "left",
+        "dx": 12,
+        "fontWeight": "bold",
+        "fontSize": 11
+      },
+      "encoding": {
+        "text": {
+          "field": "SpendLabel",
+          "type": "nominal"
+        }
+      }
+    }
+  ],
+  "config": {
+    "view": {"stroke": null}
+  }
+}

@@ -1,0 +1,100 @@
+{
+  "$schema": "https://vega.github.io/schema/vega-lite/v5.json",
+  "width": 800,
+  "height": 600,
+  "title": {
+    "text": "Australian State Spending (Billion AUD)",
+    "fontSize": 22
+    
+  },
+  "config": {
+    "background": "#dceef7",
+    "view": {
+      "stroke": "black"
+    }
+  },
+  "projection": {
+    "type": "mercator",
+    "center": [133, -27],
+    "scale": 530
+  },
+  "layer": [
+    {
+      "data": {
+        "url": "states.geojson",
+        "format": {
+          "type": "json",
+          "property": "features"
+        }
+      },
+      "mark": {
+        "type": "geoshape",
+        "fill": "#eae6df",
+        "stroke": "white",
+        "strokeWidth": 1.5
+      }
+    },
+    {
+      "data": {
+        "values": [
+          {"State": "New South Wales", "Spending": 26.4, "Longitude": 151.2093, "Latitude": -33.8688},
+          {"State": "Victoria", "Spending": 20.0, "Longitude": 144.9631, "Latitude": -37.8136},
+          {"State": "Queensland", "Spending": 17.8, "Longitude": 153.0251, "Latitude": -27.4698},
+          {"State": "Western Australia", "Spending": 9.1, "Longitude": 115.8605, "Latitude": -31.9505},
+          {"State": "South Australia", "Spending": 5.4, "Longitude": 138.6007, "Latitude": -34.9285},
+          {"State": "Tasmania", "Spending": 1.6, "Longitude": 147.3272, "Latitude": -42.8821},
+          {"State": "Northern Australia", "Spending": 0.5, "Longitude": 130.8456, "Latitude": -12.4634},
+          {"State": "Australian Capital Territory", "Spending": 1.7, "Longitude": 149.1300, "Latitude": -35.2809}
+        ]
+      },
+      "mark": {
+        "type": "circle",
+        "opacity": 0.8,
+        "stroke": "black",
+        "strokeWidth": 1
+      },
+      "encoding": {
+        "longitude": {
+          "field": "Longitude",
+          "type": "quantitative"
+        },
+        "latitude": {
+          "field": "Latitude",
+          "type": "quantitative"
+        },
+        "size": {
+          "field": "Spending",
+          "type": "quantitative",
+          "scale": {
+            "range": [100, 2000]
+          },
+          "legend": {
+            "title": "Spending (Billion)",
+            "orient": "right"
+          }
+        },
+        "color": {
+          "field": "Spending",
+          "type": "quantitative",
+          "scale": {
+            "scheme": "reds"
+          },
+          "legend": {
+            "title": "Spending (Billion AUD)"
+          }
+        },
+        "tooltip": [
+          {
+            "field": "State",
+            "type": "nominal"
+          },
+          {
+            "field": "Spending",
+            "type": "quantitative",
+            "title": "Spending (Billion AUD)"
+          }
+        ]
+      }
+    }
+  ]
+}
