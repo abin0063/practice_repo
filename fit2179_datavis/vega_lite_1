@@ -1,11 +1,11 @@
 var vg_1 = "year_users.json";
-vegaEmbed("#bar_chart", vg_1).then(function(result) {
+vegaEmbed("#bar_chart", vg_1,{"actions":false}).then(function(result) {
     // Access the Vega view instance (https://vega.github.io/vega/docs/api/view/) as result.view
 }).catch(console.error);
 
 
 var vg_2 = "platforms_marketplace.json";
-vegaEmbed("#pie_chart", vg_2)
+vegaEmbed("#pie_chart", vg_2,{"actions":false})
     .then(function(result) {
         // pie chart loaded successfully
     })
@@ -13,7 +13,7 @@ vegaEmbed("#pie_chart", vg_2)
 
 
 var vg_3 = "onlinespend_by_gen.json";
-vegaEmbed("#donut_chart", vg_3)
+vegaEmbed("#donut_chart", vg_3,{"actions":false})
     .then(function(result) {
     // Access the Vega view instance as result.view
     })
@@ -21,14 +21,14 @@ vegaEmbed("#donut_chart", vg_3)
 
 
 var vg_4 = "in-store_online.json";
-vegaEmbed("#stacked_bar_chart", vg_4)
+vegaEmbed("#stacked_bar_chart", vg_4,{"actions":false})
     .then(function(result) {})
     .catch(console.error);
 
 
 // MAP CHART (NEW)
 var vg_5 = "statespending.json";
-vegaEmbed("#map_chart", vg_5)
+vegaEmbed("#map_chart", vg_5,{"actions":false})
     .then(function(result) {
         // Map loaded successfully
     })
@@ -37,7 +37,7 @@ vegaEmbed("#map_chart", vg_5)
 
 // LOLLIPOP CHART (NEW)
 var vg_3 = "category_spend.json";
-vegaEmbed('#lollipop_chart', vg_6)
+vegaEmbed('#lollipop_chart', vg_6,{"actions":false})
     .then(function(result) {
     })
     .catch(console.error);
